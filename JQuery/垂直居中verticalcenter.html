@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vertical</title>
+  <style type="text/css">
+  /*1,  承载文字内容的高度A
+        文字行高B(lie-hight)
+        B=A;（要求必须知道承载文字的东西的高度，文字为一行）
+   2,  元素A 要居中（元素A的高度是知道的）直接让元素A在father里面top:50%;
+        A自己在回去自己高度的一半  margin-top:(heightA/2)
+   3,   3.有一个元素A
+      元素A里面有内容
+      想要让元素A里面的元素居中
+          第一步  给A增加一个爹
+          第二部  让A的爹以table的形式展示
+          第三部  让A以table-cell的形式展现
+          第四部 给A设置  vertical-align: middle;
+   4,  元素A要垂直居中（元素A有高度)
+         a,给A找一个哥哥  让哥哥浮动
+         b，让哥哥的高度为爹的一半50%
+         c，让 A clear：both
+         d，哥哥： margin-bottom：-（hightA/2)
+         e,让A：position：relative；
+   5,  A元素要垂直居中
+         a，先给A找一个哥哥
+         b，A和哥哥同时设置
+             inline-block
+             middle
+         c，哥哥的高度为父亲的高度（100%）
+              （注意： 两个inline-block之间会产生空隙问题）*/
+   .big{
+
+     background-color: pink;
+     width: 300px;
+     height: 200px;
+   }
+   .big p{
+     background-color: green;
+     /*width: 300px;*/
+     height: 100px;
+     line-height: 100px;
+   }
+   .one{
+     background-color: pink;
+     width: 300px;
+     height: 200px;
+     border: 1px solid blue;
+     position: relative;
+
+   }
+   .one-a{
+     background-color: green;
+     width: 100px;
+     height: 100px;
+       position: absolute;
+     top:50%;
+      margin-top: -50px;
+   }
+   .two{
+     background-color: orange;
+     width: 300px;
+     height: 200px;
+     border: 1px solid blue;
+       display: table;
+
+   }
+   .two-a{
+     background-color: red;
+     /*width: 100px;
+     height: 200px;
+     border: 1px solid blue;*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+
+   }
+   .three{
+     background-color: orange;
+     width: 300px;
+     height: 200px;
+   }
+   .three-a{
+     background-color: green;
+     width: 100px;
+     height: 100px;
+     float: left;
+     /*position: relative;*/
+   }
+   .three-b{
+     background-color: pink;
+     width: 50px;
+     height: 50px;
+     clear: both;
+     position: relative;;;
+     top: -25px;
+
+     /*margin-bottom: -25px;*/
+   }
+   .four{
+     background-color: green;
+     width: 300px;
+     height: 200px;
+   }
+   .four-a{
+     background-color: pink;
+     height: 100%;
+     width: 10px;
+     display: inline-block;
+     vertical-align: middle;
+   }
+   .four-b{
+     width: 50px;
+     height: 50px;
+     background-color: red;
+     display: inline-block;
+     vertical-align: middle;
+     margin-left: -3px;
+   }
+  </style>
+</head>
+<body>
+  <div class="big">
+    <p>
+      这是一段文字
+    </p>
+  </div>
+  <div class="one">
+    <div class="one-a"></div>
+  </div>
+  <div class="two">
+    <div class="two-a">
+      ksadhsfhdkj
+    </div>
+    这是一段文字
+  </div>
+  <div class="three">
+    <div class="three-a"></div>
+    <div class="three-b"></div>
+  </div>
+  <div class="four">
+    <div class="four-a"></div>
+    <div class="four-b">
+
+    </div>
+  </div>
+  <div class="five">
+    <div class="five-a"></div>
+    <div class="five-b"></div>
+  </div>
+</body>
+</html>
