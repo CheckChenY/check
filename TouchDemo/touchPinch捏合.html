@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 100px;
+				height: 100px;
+				background-color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			我是陈亚力
+		</div>
+	</body>
+	<script type="text/javascript" src="js/touch.js"></script>
+	<script type="text/javascript">
+		//		捏合事件的添加  捏合事件和rotate事件几乎是一模一样 都能触发event事件scale属性
+		//		唯一一点不同的地方在于：scale 的结束地点在：fingerStatus == "end"；
+		//		                      pinch 的结束地点在：pinchend事件中和drag一样
+		var scale = 0;
+		touch.on(wrap, "pinch", function(event) {
+			var tempScale = event.scale;
+			wrap.innerHTML = tempScale + scale;
+			var newScale = tempScale + scale;
+			wrap.style.webkitTransform = "scale(" + newScale + ")";
+		});
+		touch.on(wrap, "pinchend", function(event) {
+			scale = tempScale;
+		});
+	</script>
+
+</html>

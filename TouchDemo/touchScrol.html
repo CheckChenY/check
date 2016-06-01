@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 100px;
+				height: 100px;
+				background-color: lavender;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			我是陈亚力
+		</div>
+	</body>
+	<script type="text/javascript" src="js/touch.js"></script>
+	<script type="text/javascript">
+		var scale = 1;
+		touch.on(wrap, "rotate", function(event) {
+			var tempScale = event.scale.toFixed(2) - 1;
+			wrap.innerHTML = scale + tempScale;
+			var newScale = scale + tempScale;
+			wrap.style.webkitTransform = "scale(" + newScale + ")";
+			//			控制一个放大和缩小的极端问题
+			if (newScale >= 2) {
+				newScale = 2;
+			} else if (newScale <= 0.5) {
+				newScale = 0.5;
+			}
+			event, preventDefault;
+			if (event.fingerStatus == "end") {
+				scale = tempScale + scale;
+			}
+		})
+	</script>
+
+</html>
